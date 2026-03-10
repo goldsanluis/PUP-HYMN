@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: maroon;
+    font-family: 'Times New Roman', serif;
+    text-align: center;
+    color: maroon;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-half {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #5a0010;
+    border-bottom: 4px solid gold;
+    padding: 10px;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.header-row img {
+    width: 70px;
+    height: 70px;
+}
+
+.header-text {
+    text-align: left;
+}
+
+h1 {
+    color: gold;
+    font-size: 26px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.marquee-box {
+    background-color: black;
+    border: 3px solid gold;
+    padding: 15px;
+    width: 80%;
+    font-size: 28px;
+    font-weight: bold;
+    color: gold;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+#lyric-display {
+    color: gold;
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+    animation: marquee-scroll 8s linear infinite;
+    padding: 0 20px;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+
+.control-btn {
+    background-color: gold;
+    color: #7B0018;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+.control-btn:hover {
+    background-color: yellow;
+}
+
+.play-btn {
+    font-size: 22px;
+    padding: 12px 30px;
+}
+
+/* Progress Bar */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    color: gold;
+    font-size: 14px;
+}
+
+.progress-container input[type="range"] {
+    width: 200px;
+    cursor: pointer;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+/* Controls Row */
+.controls-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.volume-control,
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: gold;
+    font-size: 14px;
+}
+
+.volume-control input[type="range"],
+.speed-control select {
+    cursor: pointer;
+    background-color: gold;
+    color: maroon;
+    border: 2px solid gold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Speed control select options */
+.speed-control select option {
+    background-color: gold;
+    color: maroon;
+}
+
+.small-btn {
+    background-color: gold;
+    color: #7B0018;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.info-row {
+    color: gold;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+input[type=range] {
+    width: 100px;
+}
+
+.bottom-half {
+    height: 50vh;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #7B0018;
+}
+
+/* Custom Scrollbar - Maroon */
+.bottom-half::-webkit-scrollbar {
+    width: 12px;
+}
+
+.bottom-half::-webkit-scrollbar-track {
+    background: #5a0010;
+    border-radius: 6px;
+}
+
+.bottom-half::-webkit-scrollbar-thumb {
+    background-color: maroon;
+    border-radius: 6px;
+    border: 2px solid #5a0010;
+}
+
+.bottom-half::-webkit-scrollbar-thumb:hover {
+    background-color: #5a0010;
+}
+
+.lyrics-box {
+    background-color: black;
+    color: gold;
+    margin: 0 auto;
+    width: 70%;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 2.8;
+}
+
+/* WORD STATES FROM ORIGINAL */
+.word {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: gold !important;
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.word.active {
+    background-color: gold !important;
+    color: black !important;
+    font-weight: bold;
+}
+
+.word.sung {
+    color: gold !important;
+    background-color: transparent;
+}
+
+.word.upcoming {
+    color: maroon !important;
+    background-color: transparent;
+}

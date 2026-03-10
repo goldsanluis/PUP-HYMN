@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PUP Hymn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top-half">
+    <div class="header-row">
+        <img src="pup logo.png">
+        <div class="header-text">
+            <h1>Polytechnic University of the Philippines</h1>
+        </div>
+    </div>
+
+    <h1>PUP Hymn</h1>
+
+    <div class="marquee-box">
+        <div id="lyric-display">~PUP Hymn~</div>
+    </div>
+
+    <audio id="hymn-audio" onloadedmetadata="updateDuration()">
+        <source src="pup-hymn.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="progress-container">
+        <span id="current-time">0:00</span>
+        <input type="range" id="progress-bar" min="0" max="100" value="0" onchange="seekAudio(this.value)">
+        <span id="total-time">0:00</span>
+    </div>
+
+    <div class="buttons">
+        <button class="control-btn" onclick="rewindSong()" title="Back 10s">⏮</button>
+        <button class="control-btn play-btn" onclick="startSong()" title="Play">▶</button>
+        <button class="control-btn" onclick="pauseSong()" title="Pause">⏸</button>
+        <button class="control-btn" onclick="restartSong()" title="Restart">↺</button>
+        <button class="control-btn" onclick="forwardSong()" title="Forward 10s">⏭</button>
+    </div>
+
+    <div class="controls-row">
+        <div class="volume-control">
+            <span>🕪</span>
+            <input type="range" min="0" max="1" step="0.1" value="1" onchange="changeVolume(this.value)">
+        </div>
+        <div class="speed-control">
+            <span>⚡︎</span>
+            <select onchange="changeSpeed(this.value)">
+                <option value="0.5">0.5x</option>
+                <option value="0.75">0.75x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+                <option value="2">2x</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="bottom-half">
+    <div class="lyrics-box" id="lyrics-box">
+        <p><span class="word upcoming" id="word-0" onclick="jumpToWord(0)">Sintang</span> <span class="word upcoming" id="word-1" onclick="jumpToWord(1)">Paaralan</span></p>
+        <p><span class="word upcoming" id="word-2" onclick="jumpToWord(2)">Tanglaw</span> <span class="word upcoming" id="word-3" onclick="jumpToWord(3)">ka</span> <span class="word upcoming" id="word-4" onclick="jumpToWord(4)">ng</span> <span class="word upcoming" id="word-5" onclick="jumpToWord(5)">bayan</span></p>
+        <p><span class="word upcoming" id="word-6" onclick="jumpToWord(6)">Pandayan</span> <span class="word upcoming" id="word-7" onclick="jumpToWord(7)">ng</span> <span class="word upcoming" id="word-8" onclick="jumpToWord(8)">isip</span> <span class="word upcoming" id="word-9" onclick="jumpToWord(9)">ng</span> <span class="word upcoming" id="word-10" onclick="jumpToWord(10)">kabataan</span></p>
+        <p><span class="word upcoming" id="word-11" onclick="jumpToWord(11)">Kami</span> <span class="word upcoming" id="word-12" onclick="jumpToWord(12)">ay</span> <span class="word upcoming" id="word-13" onclick="jumpToWord(13)">dumating</span> <span class="word upcoming" id="word-14" onclick="jumpToWord(14)">nang</span> <span class="word upcoming" id="word-15" onclick="jumpToWord(15)">salat</span> <span class="word upcoming" id="word-16" onclick="jumpToWord(16)">sa</span> <span class="word upcoming" id="word-17" onclick="jumpToWord(17)">yaman</span></p>
+        <p><span class="word upcoming" id="word-18" onclick="jumpToWord(18)">Hanap</span> <span class="word upcoming" id="word-19" onclick="jumpToWord(19)">na</span> <span class="word upcoming" id="word-20" onclick="jumpToWord(20)">dunong</span> <span class="word upcoming" id="word-21" onclick="jumpToWord(21)">ay</span> <span class="word upcoming" id="word-22" onclick="jumpToWord(22)">iyong</span> <span class="word upcoming" id="word-23" onclick="jumpToWord(23)">alay</span></p>
+        <p><span class="word upcoming" id="word-24" onclick="jumpToWord(24)">Ang</span> <span class="word upcoming" id="word-25" onclick="jumpToWord(25)">layunin</span> <span class="word upcoming" id="word-26" onclick="jumpToWord(26)">mong</span> <span class="word upcoming" id="word-27" onclick="jumpToWord(27)">makatao</span></p>
+        <p><span class="word upcoming" id="word-28" onclick="jumpToWord(28)">Dinarangal</span> <span class="word upcoming" id="word-29" onclick="jumpToWord(29)">ang</span> <span class="word upcoming" id="word-30" onclick="jumpToWord(30)">Pilipino</span></p>
+        <p><span class="word upcoming" id="word-31" onclick="jumpToWord(31)">Ang</span> <span class="word upcoming" id="word-32" onclick="jumpToWord(32)">iyong</span> <span class="word upcoming" id="word-33" onclick="jumpToWord(33)">aral,</span> <span class="word upcoming" id="word-34" onclick="jumpToWord(34)">diwa,</span> <span class="word upcoming" id="word-35" onclick="jumpToWord(35)">adhikang</span> <span class="word upcoming" id="word-36" onclick="jumpToWord(36)">taglay</span></p>
+        <p><span class="word upcoming" id="word-37" onclick="jumpToWord(37)">PUP,</span> <span class="word upcoming" id="word-38" onclick="jumpToWord(38)">aming</span> <span class="word upcoming" id="word-39" onclick="jumpToWord(39)">gabay</span></p>
+        <p><span class="word upcoming" id="word-40" onclick="jumpToWord(40)">Paaralang</span> <span class="word upcoming" id="word-41" onclick="jumpToWord(41)">dakila</span></p>
+        <p><span class="word upcoming" id="word-42" onclick="jumpToWord(42)">PUP,</span> <span class="word upcoming" id="word-43" onclick="jumpToWord(43)">pinagpala</span></p>
+    </div>
+</div>
+
+<script>
+var words=[
+    {time:12.3,word:"Sintang"}, {time:13.3,word:"Paaralan"}, {time:14.8,word:"Tanglaw"},
+    {time:15.7,word:"ka"}, {time:16.4,word:"ng"}, {time:16.9,word:"bayan"},
+    {time:18.5,word:"Pandayan"}, {time:19.7,word:"ng"}, {time:20.3,word:"isip"},
+    {time:21.5,word:"ng"}, {time:22.0,word:"kabataan"}, {time:24.0,word:"Kami"},
+    {time:25.0,word:"ay"}, {time:25.6,word:"dumating"}, {time:26.6,word:"nang"},
+    {time:27.1,word:"salat"}, {time:27.9,word:"sa"}, {time:28.2,word:"yaman"},
+    {time:29.0,word:"Hanap"}, {time:29.8,word:"na"}, {time:30.5,word:"dunong"},
+    {time:32.6,word:"ay"}, {time:32.9,word:"iyong"}, {time:33.5,word:"alay"},
+    {time:35.0,word:"Ang"}, {time:36.0,word:"layunin"}, {time:37.8,word:"mong"},
+    {time:38.8,word:"makatao"}, {time:41.5,word:"Dinarangal"}, {time:44.2,word:"ang"},
+    {time:44.9,word:"Pilipino"}, {time:47.6,word:"Ang"}, {time:48.2,word:"iyong"},
+    {time:48.5,word:"aral,"}, {time:49.6,word:"diwa,"}, {time:50.8,word:"adhikang"},
+    {time:52.0,word:"taglay"}, {time:53.5,word:"PUP,"}, {time:54.2,word:"aming"},
+    {time:55.0,word:"gabay"}, {time:56.0,word:"Paaralang"}, {time:58.8,word:"dakila"},
+    {time:61.8,word:"PUP,"}, {time:63.6,word:"pinagpala"}
+];
+
+var lines=[
+    ["Sintang","Paaralan"], ["Tanglaw","ka","ng","bayan"],
+    ["Pandayan","ng","isip","ng","kabataan"], ["Kami","ay","dumating","nang","salat","sa","yaman"],
+    ["Hanap","na","dunong","ay","iyong","alay"], ["Ang","layunin","mong","makatao"],
+    ["Dinarangal","ang","Pilipino"], ["Ang","iyong","aral,","diwa,","adhikang","taglay"],
+    ["PUP,","aming","gabay"], ["Paaralang","dakila"], ["PUP,","pinagpala"]
+];
+
+var lyricsBox=document.getElementById("lyrics-box");
+var wordIndex=0;
+
+for(var i=0;i<lines.length;i++){
+    var p=document.createElement("p");
+    for(var j=0;j<lines[i].length;j++){
+        var span=document.createElement("span");
+        span.className="word upcoming";
+        span.textContent=lines[i][j];
+        span.id="word-"+wordIndex;
+        span.onclick=function(){
+            var index=parseInt(this.id.replace("word-",""));
+            audio.currentTime=words[index].time;
+            audio.play();
+        };
+        p.appendChild(span);
+        if(j<lines[i].length-1){ p.appendChild(document.createTextNode(" ")); }
+        wordIndex++;
+    }
+    lyricsBox.appendChild(p);
+}
+
+var audio=document.getElementById("hymn-audio");
+var lastActiveWord=-1;
+
+function startSong(){ audio.play(); }
+function pauseSong(){ audio.pause(); }
+function restartSong(){ audio.currentTime=0; audio.play(); lastActiveWord=-1; document.getElementById("lyric-display").innerHTML="~ PUP Hymn ~"; }
+function changeVolume(v){ audio.volume=v; }
+function changeSpeed(v){ audio.playbackRate=v; }
+function forwardSong(){ audio.currentTime = Math.min(audio.currentTime + 10, audio.duration); }
+function rewindSong(){ audio.currentTime = Math.max(audio.currentTime - 10, 0); }
+function seekAudio(val){ audio.currentTime = (val / 100) * audio.duration; }
+function updateDuration(){ document.getElementById("total-time").innerHTML = formatTime(audio.duration); }
+function formatTime(seconds){ var mins = Math.floor(seconds / 60); var secs = Math.floor(seconds % 60); return mins + ":" + (secs < 10 ? "0" : "") + secs; }
+function jumpToWord(index){ audio.currentTime=words[index].time; audio.play(); }
+
+audio.addEventListener("timeupdate",function(){
+    var currentTime=audio.currentTime;
+    if(audio.duration){
+        var progress = (currentTime / audio.duration) * 100;
+        document.getElementById("progress-bar").value = progress;
+    }
+    var activeWord=-1;
+    for(var i=0;i<words.length;i++){
+        if(currentTime>=words[i].time){ activeWord=i; }
+    }
+    // Update the top lyric display
+    if(activeWord>=0 && activeWord<words.length){
+        document.getElementById("lyric-display").innerHTML="~ " + words[activeWord].word + " ~";
+    } else {
+        document.getElementById("lyric-display").innerHTML="~ PUP Hymn ~";
+    }
+if(activeWord!==lastActiveWord){
+        lastActiveWord=activeWord;
+        for(var i=0;i<words.length;i++){
+            var el=document.getElementById("word-"+i);
+            if(!el) continue;
+            if(i<activeWord){ el.className="word sung"; }
+            else if(i===activeWord){ el.className="word active"; }
+            else{ el.className="word upcoming"; }
+        }
+        // Auto-scroll the lyrics box to keep active word in view
+        var activeElement = document.querySelector(".word.active");
+        if(activeElement){
+            activeElement.scrollIntoView({behavior: "smooth", block: "center"});
+        }
+    }
+});
+
+audio.addEventListener("ended",function(){
+    document.getElementById("lyric-display").innerHTML="~ Mabuhay ang PUP! ~";
+});
+</script>
+
+</body>
+</html>
