@@ -1,96 +1,82 @@
 # PUP Hymn Karaoke
 
-An interactive web-based karaoke player for the Polytechnic University of the Philippines (PUP) Hymn. This application provides a synchronized lyrics display with audio playback, allowing users to sing along to the beloved PUP anthem.
+An interactive web-based karaoke player for the Polytechnic University of the Philippines (PUP) Hymn. Words highlight in real-time as the song plays so you can sing along.
 
-![PUP Hymn](https://upload.wikimedia.org/wikipedia/en/c/c2/Polytechnic_University_of_the_Philippines_seal.png)
+![PUP Seal](https://upload.wikimedia.org/wikipedia/en/c/c2/Polytechnic_University_of_the_Philippines_seal.png)
 
-## Features
+---
 
-### Audio Controls
-- **Play** - Start playing the PUP Hymn audio
-- **Pause** - Pause the current playback
-- **Restart** - Restart the song from the beginning
-- **Forward (⏭)** - Skip forward 10 seconds
-- **Rewind (⏮)** - Rewind 10 seconds
+## How to Run
 
-### Playback Options
-- **Volume Control** - Adjust audio volume (0 to 1)
-- **Playback Speed** - Change speed (0.5x, 0.75x, 1x, 1.25x, 1.5x, 2x)
-- **Progress Bar** - Seek to any position in the song
+1. Make sure all the files listed below are in the **same folder**
+2. Open `index.html` in any modern web browser (Chrome, Edge, Firefox, Safari)
+3. Press ▶ to start — that's it!
 
-### Karaoke Features
-- **Synchronized Lyrics** - Words highlight in real-time as the song plays
-- **Word-by-Word Highlighting** - Click on any word to jump to that position
-- **Auto-Scroll** - Lyrics automatically scroll to keep the current word in view
-- **Top Display** - Current word displayed at the top of the player
-
-### Visual Design
-- Official PUP colors (Maroon and Gold)
-- PUP Logo display
-- Responsive layout with split-screen design
-- Smooth animations and transitions
+---
 
 ## File Structure
 
 ```
-PUP HYMN/
-├── pup-hymn-karaoke-simple.html.html   # Main karaoke application
-├── checking pup hymn.html              # Alternative version
-├── style.css                           # Stylesheet (maroon & gold theme)
-├── pup-hymn.mp3                        # PUP Hymn audio file
-└── pup logo.png                        # PUP logo image
+PUP Hymn/
+├── index.html       ← Open this in your browser to run the app
+├── style.css        ← Controls colors, layout, and fonts
+├── script.js        ← Controls audio playback and lyric highlighting
+├── pup-hymn.mp3     ← The PUP Hymn audio file
+├── pup logo.png     ← PUP logo shown in the header
+└── Background.jpg   ← Background image
 ```
 
-## Requirements
+---
 
-To run this project, you need:
+## Controls
 
-1. **Web Browser** - Modern browser (Chrome, Firefox, Edge, Safari)
-2. **Audio File** - `pup-hymn.mp3` in the same directory
-3. **Image File** - `pup logo.png` in the same directory
-4. **CSS File** - `style.css` in the same directory
+| Button / Control | What it does |
+|---|---|
+| ▶ Play | Start the song |
+| ⏸ Pause | Pause the song |
+| ↺ Restart | Go back to the beginning |
+| ⏮ Rewind | Jump back 10 seconds |
+| ⏭ Forward | Jump forward 10 seconds |
+| Seek bar | Click or drag to jump to any part of the song |
+| Volume slider 🕪 | Drag to adjust how loud the audio is |
+| Speed selector ⚡︎ | Change playback speed (0.5x slow → 2x fast) |
+| Click a word | Jumps the song to that word's position |
 
-## How to Use
+---
 
-1. Open `pup-hymn-karaoke-simple.html.html` in your web browser
-2. Click the **Play** button (▶) to start the hymn
-3. Sing along as the words highlight in real-time
-4. Use the controls to:
-   - Adjust volume with the slider
-   - Change playback speed with the dropdown
-   - Click on any word to jump to that part of the song
-   - Use the progress bar to seek to any position
+## Karaoke Features
 
-## PUP Hymn Lyrics
+- **Word-by-word highlighting** — the current word lights up in gold as it's sung
+- **Sung words** stay gold so you can see how far along the song is
+- **Upcoming words** are dimmed so focus stays on the current word
+- **Auto-scroll** — the lyrics box scrolls automatically to keep the active word in view
+- **Top display** — the current word is also shown in large text above the controls
+
+---
+
+## Lyrics
 
 ```
 Sintang Paaralan
 Tanglaw ka ng bayan
 Pandayan ng isip ng kabataan
-
 Kami ay dumating nang salat sa yaman
 Hanap na dunong ay iyong alay
 Ang layunin mong makatao
 Dinarangal ang Pilipino
-
 Ang iyong aral, diwa, adhikang taglay
 PUP, aming gabay
 Paaralang dakila
 PUP, pinagpala
 ```
 
-## Technical Details
+---
 
-- **Built with**: HTML5, CSS3, Vanilla JavaScript
-- **Audio API**: HTML5 Audio API
-- **Styling**: CSS Flexbox for layout
-- **No external dependencies** - Pure HTML/CSS/JS
+## Built With
 
-## License
-
-This project is for educational purposes. The PUP Hymn is the official anthem of the Polytechnic University of the Philippines.
+- HTML5, CSS3, and plain JavaScript — no frameworks or libraries needed
+- HTML5 Audio API for playback
 
 ---
 
 *Mabuhay ang PUP!*
-
