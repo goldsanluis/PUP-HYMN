@@ -5,8 +5,12 @@
 }
 
 body {
-    background-color: maroon;
-    font-family: 'Times New Roman', serif;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     text-align: center;
     color: maroon;
     height: 100vh;
@@ -15,235 +19,259 @@ body {
     flex-direction: column;
 }
 
+/* Top Section */
 .top-half {
-    height: 50vh;
+    height: 55%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    background-color: #5a0010;
-    border-bottom: 4px solid gold;
-    padding: 10px;
+    padding: 20px;
 }
 
 .header-row {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 5px;
+    gap: 15px;
+    margin-bottom: 10px;
 }
 
 .header-row img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid gold;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
-.header-text {
-    text-align: left;
-}
+h1 { color: gold; font-size: 22px; text-shadow: 2px 2px 4px black; }
+h2 { color: gold; font-size: 18px; margin-bottom: 10px; }
 
-h1 {
-    color: gold;
-    font-size: 26px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
+/* Marquee Box */
 .marquee-box {
-    background-color: black;
-    border: 3px solid gold;
-    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid gold;
+    padding: 10px 20px;
     width: 80%;
-    font-size: 28px;
-    font-weight: bold;
-    color: gold;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
     overflow: hidden;
-    position: relative;
 }
 
 #lyric-display {
     color: gold;
+    font-size: 24px;
     font-weight: bold;
-    white-space: nowrap;
-    display: inline-block;
-    animation: marquee-scroll 8s linear infinite;
-    padding: 0 20px;
-}
-
-@keyframes marquee-scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-
-
-.control-btn {
-    background-color: gold;
-    color: #7B0018;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 25px;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    margin: 5px;
-}
-
-.control-btn:hover {
-    background-color: yellow;
-}
-
-.play-btn {
-    font-size: 22px;
-    padding: 12px 30px;
 }
 
 /* Progress Bar */
 .progress-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 10px 0;
+    gap: 15px;
+    background: rgba(0,0,0,0.6);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid gold;
     color: gold;
-    font-size: 14px;
+    margin: 10px 0;
 }
 
-.progress-container input[type="range"] {
-    width: 200px;
+#progress-bar {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 250px;
+    height: 6px;
+    border-radius: 5px;
+    outline: none;
+    background: linear-gradient(to right, gold 0%, #333 0%);
     cursor: pointer;
+}
+
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: gold;
+    border-radius: 50%;
+    border: 2px solid #b8860b;
+}
+
+#progress-bar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: gold;
+    border-radius: 50%;
+    border: 2px solid #b8860b;
 }
 
 /* Buttons */
 .buttons {
     display: flex;
-    justify-content: center;
-    gap: 5px;
+    gap: 10px;
     margin: 10px 0;
 }
 
-/* Controls Row */
-.controls-row {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 10px;
+.control-btn {
+    background: gold;
+    color: maroon;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
-.volume-control,
-.speed-control {
+.control-btn:hover { transform: scale(1.1); background: #e6c200; color: maroon; }
+.play-btn { transform: scale(1.2); }
+
+/* Volume & Speed Row */
+.controls-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.volume-control, .speed-control {
+    background: rgba(0,0,0,0.5);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid gold;
+    color: gold;
     display: flex;
     align-items: center;
     gap: 8px;
-    color: gold;
-    font-size: 14px;
+    position: relative;
 }
 
-.volume-control input[type="range"],
-.speed-control select {
-    cursor: pointer;
-    background-color: gold;
-    color: maroon;
-    border: 2px solid gold;
-    padding: 5px 10px;
+/* Volume Slider */
+#volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 90px;
+    height: 6px;
     border-radius: 5px;
+    outline: none;
+    background: linear-gradient(to right, gold 100%, #333 100%);
+    cursor: pointer;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    background: gold;
+    border-radius: 50%;
+    border: 2px solid #b8860b;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: gold;
+    border-radius: 50%;
+    border: 2px solid #b8860b;
+}
+
+/* Custom Speed Dropdown */
+.custom-select {
+    position: relative;
+    width: 60px;
+    user-select: none;
+}
+
+.custom-select-selected {
+    background: rgba(0,0,0,0.6);
+    color: gold;
+    border: 1px solid gold;
+    border-radius: 8px;
+    padding: 3px 8px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.custom-select-selected:hover {
+    background: rgba(255, 215, 0, 0.15);
+}
+
+.custom-select-options {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a0000;
+    border: 1px solid gold;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 100;
+    min-width: 70px;
+}
+
+.custom-select-options.open {
+    display: block;
+}
+
+.custom-option {
+    padding: 6px 12px;
+    color: gold;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.custom-option:hover {
+    background: rgba(255, 215, 0, 0.2);
+    color: gold;
+}
+
+.custom-option.selected {
+    background: gold;
+    color: maroon;
     font-weight: bold;
 }
 
-/* Speed control select options */
-.speed-control select option {
-    background-color: gold;
-    color: maroon;
-}
-
-.small-btn {
-    background-color: gold;
-    color: #7B0018;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 3px;
-}
-
-.info-row {
-    color: gold;
-    font-size: 13px;
-    margin-top: 6px;
-}
-
-input[type=range] {
-    width: 100px;
-}
-
+/* Bottom Section */
 .bottom-half {
-    height: 50vh;
+    height: 45%;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
     overflow-y: auto;
-    padding: 15px;
-    background-color: #7B0018;
-}
-
-/* Custom Scrollbar - Maroon */
-.bottom-half::-webkit-scrollbar {
-    width: 12px;
-}
-
-.bottom-half::-webkit-scrollbar-track {
-    background: #5a0010;
-    border-radius: 6px;
-}
-
-.bottom-half::-webkit-scrollbar-thumb {
-    background-color: maroon;
-    border-radius: 6px;
-    border: 2px solid #5a0010;
-}
-
-.bottom-half::-webkit-scrollbar-thumb:hover {
-    background-color: #5a0010;
 }
 
 .lyrics-box {
-    background-color: black;
-    color: gold;
-    margin: 0 auto;
     width: 70%;
-    padding: 20px 30px;
-    border-radius: 10px;
-    font-size: 20px;
-    line-height: 2.8;
+    margin: 0 auto;
+    line-height: 2;
 }
 
-/* WORD STATES FROM ORIGINAL */
+/* Word States */
 .word {
-    display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px;
-    color: gold !important;
+    font-size: 22px;
+    padding: 0 5px;
+    transition: all 0.3s ease;
     cursor: pointer;
-    background-color: transparent;
-    font-weight: bold;
-    font-size: 18px;
 }
+
+.word.upcoming { color: maroon; }
 
 .word.active {
-    background-color: gold !important;
-    color: black !important;
-    font-weight: bold;
+    color: maroon !important;
+    background: gold;
+    border-radius: 5px;
+    transform: scale(1.2);
 }
 
 .word.sung {
     color: gold !important;
-    background-color: transparent;
 }
 
-.word.upcoming {
-    color: maroon !important;
-    background-color: transparent;
-}
+/* Scrollbar */
+.bottom-half::-webkit-scrollbar { width: 6px; }
+.bottom-half::-webkit-scrollbar-thumb { background: gold; border-radius: 10px; }
